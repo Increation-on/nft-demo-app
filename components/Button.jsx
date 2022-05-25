@@ -1,0 +1,55 @@
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { COLORS, SIZES, FONTS, SHADOWS } from './../constants/theme';
+
+
+export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
+    return (
+        <TouchableOpacity
+            style={{
+                width: 40,
+                height: 40,
+                backgroundColor: COLORS.white,
+                position: "absolute",
+                borderRadius: SIZES.extraLarge,
+                alignItems: "center",
+                justifyContent: "center",
+                ...SHADOWS.light,
+                ...props,
+            }}
+            onPress={handlePress}
+        >
+            <Image
+                source={imgUrl}
+                style={{ width: 24, height: 24 }}
+                resizeMode="contain"
+            />
+        </TouchableOpacity>
+    )
+}
+
+export const RectButton = ({ minWidth, fontSize, handlePress, ...props }) => {
+    return (
+        <TouchableOpacity
+            style={{
+                backgroundColor: COLORS.primary,
+                borderRadius: SIZES.extraLarge,
+                minWidth: minWidth,
+                padding: SIZES.small,
+                ...props,
+                marginBottom: 20,
+                marginRight: 15
+            }}
+            onPress={handlePress}
+        >
+            <Text style={{
+                fontFamily: FONTS.semiBold,
+                fontSize:fontSize,
+                color: COLORS.white,
+                textAlign: "center"
+            }}
+
+            >Place a bid</Text>
+        </TouchableOpacity>
+    )
+}
+
